@@ -3,10 +3,20 @@ local fn = vim.fn
 local opt = vim.o
 local g = vim.g
 
--- <leader> key. Defaults to `\`. Some people prefer space.
--- g.mapleader = ' '
--- g.maplocalleader = ' '
 
+---------- Globals ----------
+-- <leader> key. Defaults to `\`. Some people prefer space.
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+g.editorconfig = true
+g.have_nerd_font = true
+
+-- let sqlite.lua (which some plugins depend on) know where to find sqlite
+vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+
+
+---------- Options ----------
 opt.compatible = false
 
 -- Enable true colour support
@@ -24,8 +34,12 @@ opt.relativenumber = true
 opt.cursorline = true
 opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
+opt.showmode = false
+
 opt.incsearch = true
 opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
 
 opt.spell = true
 opt.spelllang = 'en'
@@ -34,18 +48,23 @@ opt.expandtab = true
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
+opt.breakindent = true
 opt.foldenable = true
+opt.updatetime = 250
+opt.timeoutlen = 700
 opt.history = 2000
 opt.nrformats = 'bin,hex' -- 'octal'
 opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
-opt.cmdheight = 0
+opt.colorcolumn = '100'
+opt.scrolloff = 10
+opt.inccommand = 'split'
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
--- Configure Neovim diagnostic messages
 
+---------- Configure Neovim diagnostic messages ----------
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end
@@ -92,13 +111,8 @@ vim.diagnostic.config {
   },
 }
 
-g.editorconfig = true
 
-vim.opt.colorcolumn = '100'
-
--- Native plugins
+---------- Native plugins ----------
 cmd.filetype('plugin', 'indent', 'on')
 cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
--- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')

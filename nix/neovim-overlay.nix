@@ -53,6 +53,9 @@ with final.pkgs.lib; let
     telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     # ^ telescope and extensions
+    # theme
+    neovim-ayu # https://github.com/Shatur/neovim-ayu/
+    # ^ theme
     # UI
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
