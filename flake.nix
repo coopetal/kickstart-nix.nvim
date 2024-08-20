@@ -12,6 +12,14 @@
     #   url = "github:Cassin01/wf.nvim";
     #   flake = false;
     # };
+    snipe-nvim = {
+      url = "github:/leath-dub/snipe.nvim";
+      flake = false;
+    };
+    leap-spooky-nvim = {
+      url = "github:ggandor/leap-spooky.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

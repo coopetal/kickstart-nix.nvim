@@ -15,6 +15,16 @@ api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+-- Highlight when yanking (copying) text
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 -- Disable spell checking in terminal buffers
 local nospell_group = api.nvim_create_augroup('nospell', { clear = true })
 api.nvim_create_autocmd('TermOpen', {
@@ -73,34 +83,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local function desc(description)
       return { noremap = true, silent = true, buffer = bufnr, desc = description }
     end
-    keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
-    keymap.set('n', 'gd', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
-    keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
+    keymap.set('n', '<leader>cD', vim.lsp.buf.declaration, desc('Lsp go to Declaration'))
+    keymap.set('n', '<leader>cd', vim.lsp.buf.definition, desc('Lsp go to definition'))
+    keymap.set('n', '<leader>ct', vim.lsp.buf.type_definition, desc('Lsp go to type definition'))
     keymap.set('n', 'K', vim.lsp.buf.hover, desc('[lsp] hover'))
-    keymap.set('n', '<space>pd', peek_definition, desc('lsp [p]eek [d]efinition'))
-    keymap.set('n', '<space>pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
-    keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
+    keymap.set('n', '<leader>pd', peek_definition, desc('Lsp peek definition'))
+    keymap.set('n', '<leader>pt', peek_type_definition, desc('Lsp peek type definition'))
+    keymap.set('n', '<leader>ci', vim.lsp.buf.implementation, desc('Lsp go to implementation'))
     keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
-    keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, desc('lsp add [w]orksp[a]ce folder'))
-    keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, desc('lsp [w]orkspace folder [r]emove'))
-    keymap.set('n', '<space>wl', function()
+    keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, desc('Lsp add workspace folder'))
+    keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, desc('Lsp workspace folder remove'))
+    keymap.set('n', '<leader>wl', function()
       vim.print(vim.lsp.buf.list_workspace_folders())
-    end, desc('[lsp] [w]orkspace folders [l]ist'))
-    keymap.set('n', '<space>rn', vim.lsp.buf.rename, desc('lsp [r]e[n]ame'))
-    keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace symbol [q]'))
-    keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
-    keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
-    keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
-    keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('lsp [c]ode lenses [r]efresh'))
-    keymap.set('n', 'gr', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
-    keymap.set('n', '<space>f', function()
+    end, desc('Lsp workspace folders list'))
+    keymap.set('n', '<leader>cr', vim.lsp.buf.rename, desc('Lsp rename'))
+    keymap.set('n', '<leader>wq', vim.lsp.buf.workspace_symbol, desc('Lsp workspace symbol'))
+    keymap.set('n', '<leader>cq', vim.lsp.buf.document_symbol, desc('Lsp document symbol'))
+    keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('Lsp code action'))
+    keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('Lsp run code lens'))
+    keymap.set('n', '<leader>co', vim.lsp.codelens.refresh, desc('Lsp code lenses refresh'))
+    keymap.set('n', 'gr', vim.lsp.buf.references, desc('Lsp get references'))
+    keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format { async = true }
-    end, desc('[lsp] [f]ormat buffer'))
+    end, desc('Lsp format buffer'))
     if client and client.server_capabilities.inlayHintProvider then
-      keymap.set('n', '<space>h', function()
+      keymap.set('n', '<leader>ch', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
         vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
-      end, desc('[lsp] toggle inlay hints'))
+      end, desc('Lsp toggle inlay hints'))
     end
 
     -- Auto-refresh code lenses

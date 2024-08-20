@@ -42,48 +42,65 @@ with final.pkgs.lib; let
     cmp-cmdline # cmp command line suggestions
     cmp-cmdline-history # cmp command line history suggestions
     # ^ nvim-cmp extensions
+
     # git integration plugins
     diffview-nvim # https://github.com/sindrets/diffview.nvim/
     neogit # https://github.com/TimUntersberger/neogit/
     gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
     vim-fugitive # https://github.com/tpope/vim-fugitive/
     # ^ git integration plugins
+
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
     telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     # ^ telescope and extensions
+
     # theme
     neovim-ayu # https://github.com/Shatur/neovim-ayu/
     # ^ theme
+
     # UI
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     nvim-treesitter-context # nvim-treesitter-context
+    # TODO: Add toggleterm and neotree
+    which-key-nvim
     # ^ UI
+    
     # language support
     # ^ language support
+
     # navigation/editing enhancement plugins
     vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
-    eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
-    nvim-surround # https://github.com/kylechui/nvim-surround/
     nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
     nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
+    leap-nvim # https://github.com/ggandor/leap.nvim/
     # ^ navigation/editing enhancement plugins
+
+    # Editor
+    todo-comments-nvim # https://github.com/folke/todo-comments.nvim
+    treesj # https://github.com/Wansmer/treesj/
+    # ^ Editor
+
     # Useful utilities
+    mini-nvim # https://github.com/echasnovski/mini.nvim?tab=readme-ov-file
     nvim-unception # Prevent nested neovim sessions | nvim-unception
     # ^ Useful utilities
+
     # libraries that other plugins depend on
     sqlite-lua
     plenary-nvim
     nvim-web-devicons
     vim-repeat
     # ^ libraries that other plugins depend on
+
     # bleeding-edge plugins from flake inputs
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
+    (mkNvimPlugin inputs.leap-spooky-nvim "leap-spooky-nvim") # https://github.com/ggandor/leap-spooky.nvim
+    (mkNvimPlugin inputs.snipe-nvim "snipe-nvim") # https://github.com/leath-dub/snipe.nvim
     # ^ bleeding-edge plugins from flake inputs
-    which-key-nvim
   ];
 
   extraPackages = with pkgs; [
