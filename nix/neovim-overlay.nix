@@ -105,6 +105,7 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    gcc
     lua-language-server
     nil # nix LSP
   ];
