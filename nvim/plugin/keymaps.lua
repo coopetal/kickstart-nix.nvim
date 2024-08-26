@@ -211,8 +211,3 @@ end
 
 keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle Spellcheck' })
 
-keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move down half-page and center' })
-keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move up half-page and center' })
-keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'Move DOWN full-page and center' })
-keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'Move UP full-page and center' })
-

@@ -10,6 +10,7 @@ vim.g.did_load_plugins_plugin = true
 require('ayu').colorscheme()
 
 
+---------- Plugins ----------
 require('todo-comments').setup()
 require('which-key').add {
   { '<leader>st', group = 'Search TODOs' },
@@ -29,7 +30,9 @@ vim.filetype.get_option = function(filetype, option)
 end
 
 
-require('treesj').setup()
+require('treesj').setup {
+  use_default_keymaps = false,
+}
 require('which-key').add {
   { '\\t', group = 'TreeSJ' },
 }
@@ -57,4 +60,16 @@ vim.keymap.set("n", "<leader>bs", require('snipe').open_buffer_menu, { desc = 'S
 
 require("toggleterm").setup {
   open_mapping = [[<C-\>]],
+}
+
+
+require("project_nvim").setup()
+
+
+require('highlight-undo').setup()
+
+-- TODO: Keymap for undotree
+
+require('neoscroll').setup {
+  easing = "quartic" -- linear, quadratic, cubic, quartic, quintic, circular, sine
 }

@@ -65,8 +65,10 @@ with final.pkgs.lib; let
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     neo-tree-nvim # https://github.com/nvim-neo-tree/neo-tree.nvim
+    neoscroll-nvim # https://github.com/karb94/neoscroll.nvim/
     nvim-treesitter-context # nvim-treesitter-context
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
+    undotree # https://github.com/mbbill/undotree/
 
     # HACK: pull which-key directly from github instead of using nixpkgs, since that version contains a bug 
     # once the neovim flake is pulled into a system. Can probably remove once nixos unstable channel updates 
@@ -78,22 +80,20 @@ with final.pkgs.lib; let
     # language support
     # ^ language support
 
-    # navigation/editing enhancement plugins
-    vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
+    # Editor
+    highlight-undo-nvim # https://github.com/tzachar/highlight-undo.nvim/
+    leap-nvim # https://github.com/ggandor/leap.nvim/
     nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
     nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
-    leap-nvim # https://github.com/ggandor/leap.nvim/
-    # ^ navigation/editing enhancement plugins
-
-    # Editor
     todo-comments-nvim # https://github.com/folke/todo-comments.nvim
     treesj # https://github.com/Wansmer/treesj/
+    vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
     # ^ Editor
 
     # Useful utilities
-    # TODO: set up mini.nvim plugins
     mini-nvim # https://github.com/echasnovski/mini.nvim?tab=readme-ov-file
     nvim-unception # Prevent nested neovim sessions | nvim-unception
+    project-nvim # https://github.com/ahmedkhalf/project.nvim/
     # ^ Useful utilities
 
     # libraries that other plugins depend on
