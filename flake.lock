@@ -217,7 +217,8 @@
         "gen-luarc": "gen-luarc",
         "leap-spooky-nvim": "leap-spooky-nvim",
         "nixpkgs": "nixpkgs_2",
-        "snipe-nvim": "snipe-nvim"
+        "snipe-nvim": "snipe-nvim",
+        "which-key-nvim": "which-key-nvim"
       }
     },
     "snipe-nvim": {
@@ -248,6 +249,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "which-key-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721858377,
+        "narHash": "sha256-nv9s4/ax2BoL9IQdk42uN7mxIVFYiTK+1FVvWDKRnGM=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "6c1584eb76b55629702716995cca4ae2798a9cca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
         "type": "github"
       }
     }
