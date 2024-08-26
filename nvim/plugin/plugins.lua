@@ -30,12 +30,15 @@ end
 
 
 require('treesj').setup()
-vim.keymap.set('n', '\\cm', require('treesj').toggle, { desc = 'Toggle tree splitting' })
-vim.keymap.set('n', '\\cM', function()
+require('which-key').add {
+  { '\\t', group = 'TreeSJ' },
+}
+vim.keymap.set('n', '\\tm', require('treesj').toggle, { desc = 'Toggle tree splitting' })
+vim.keymap.set('n', '\\tM', function()
   require('treesj').toggle { split = { recursive = true } }
 end, { desc = 'Toggle tree splitting recursive' })
-vim.keymap.set('n', '\\cs', require('treesj').split, { desc = 'Split tree' })
-vim.keymap.set('n', '\\cj', require('treesj').join, { desc = 'Join tree' })
+vim.keymap.set('n', '\\ts', require('treesj').split, { desc = 'Split tree' })
+vim.keymap.set('n', '\\tj', require('treesj').join, { desc = 'Join tree' })
 
 
 require('leap').create_default_mappings()
@@ -50,3 +53,8 @@ require('snipe').setup {
 }
 vim.keymap.set('n', 'gb', require('snipe').open_buffer_menu, { desc = 'Snipe buffer' })
 vim.keymap.set("n", "<leader>bs", require('snipe').open_buffer_menu, { desc = 'Snipe buffer' })
+
+
+require("toggleterm").setup {
+  open_mapping = [[<C-\>]],
+}

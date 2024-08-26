@@ -57,7 +57,6 @@ opt.nrformats = 'bin,hex' -- 'octal'
 opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
-opt.colorcolumn = '100'
 opt.scrolloff = 10
 opt.inccommand = 'split'
 

@@ -64,8 +64,9 @@ with final.pkgs.lib; let
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
+    neo-tree-nvim # https://github.com/nvim-neo-tree/neo-tree.nvim
     nvim-treesitter-context # nvim-treesitter-context
-    # TODO: Add toggleterm and neotree
+    toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
     which-key-nvim
     # ^ UI
     
@@ -85,6 +86,7 @@ with final.pkgs.lib; let
     # ^ Editor
 
     # Useful utilities
+    # TODO: set up mini.nvim plugins
     mini-nvim # https://github.com/echasnovski/mini.nvim?tab=readme-ov-file
     nvim-unception # Prevent nested neovim sessions | nvim-unception
     # ^ Useful utilities
@@ -92,6 +94,7 @@ with final.pkgs.lib; let
     # libraries that other plugins depend on
     sqlite-lua
     plenary-nvim
+    nui-nvim # https://github.com/MunifTanjim/nui.nvim
     nvim-web-devicons
     vim-repeat
     # ^ libraries that other plugins depend on
