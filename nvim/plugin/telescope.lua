@@ -115,7 +115,7 @@ vim.keymap.set(
   grep_string_current_file_type,
   { desc = 'Search current string * in current filetype' }
 )
-vim.keymap.set('n', '<leader>sp', project_files, { desc = 'Search project files' })
+vim.keymap.set('n', '<leader>sP', project_files, { desc = 'Search project files' })
 vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = 'Search quickfix list' })
 vim.keymap.set('n', '<leader>so', builtin.command_history, { desc = 'Search command history' })
 vim.keymap.set('n', '<leader>sl', builtin.loclist, { desc = 'Search loclist' })
@@ -187,3 +187,10 @@ telescope.setup {
 
 telescope.load_extension('fzy_native')
 -- telescope.load_extension('smart_history')
+telescope.load_extension('projects')
+vim.keymap.set(
+  'n',
+  '<leader>sp',
+  "<cmd>Telescope projects<CR>",
+  { desc = 'Search project files' }
+)
