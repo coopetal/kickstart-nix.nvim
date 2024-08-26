@@ -67,7 +67,12 @@ with final.pkgs.lib; let
     neo-tree-nvim # https://github.com/nvim-neo-tree/neo-tree.nvim
     nvim-treesitter-context # nvim-treesitter-context
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
-    which-key-nvim
+
+    # HACK: pull which-key directly from github instead of using nixpkgs, since that version contains a bug 
+    # once the neovim flake is pulled into a system. Can probably remove once nixos unstable channel updates 
+    # the plugin.
+    (mkNvimPlugin inputs.which-key-nvim "which-key-nvim")
+    # which-key-nvim # https://github.com/folke/which-key.nvim
     # ^ UI
     
     # language support
