@@ -16,10 +16,6 @@
       url = "github:/ggandor/leap-spooky.nvim";
       flake = false;
     };
-    rustaceanvim = {
-      url = "github:/mrcjkb/rustaceanvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     snipe-nvim = {
       url = "github:/leath-dub/snipe.nvim";
       flake = false;
@@ -35,7 +31,6 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
-    rustaceanvim,
     ...
   }: let
     supportedSystems = [
@@ -58,8 +53,6 @@
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
-          # Rust package
-          rustaceanvim.overlays.default
         ];
       };
       shell = pkgs.mkShell {

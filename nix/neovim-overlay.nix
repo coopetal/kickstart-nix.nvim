@@ -116,7 +116,8 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
-    codelldb # Provided by rustaceanvim flake
+    # codelldb # Provided by rustaceanvim flake
+    vscode-extensions.vadimcn.vscode-lldb.adapter
     gcc
     lua-language-server
     nil # nix LSP
