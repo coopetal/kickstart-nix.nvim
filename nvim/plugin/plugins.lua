@@ -60,6 +60,8 @@ vim.keymap.set("n", "<leader>bs", require('snipe').open_buffer_menu, { desc = 'S
 
 require("toggleterm").setup {
   open_mapping = [[<C-\>]],
+  autochdir = true,
+  direction = 'float',
 }
 
 

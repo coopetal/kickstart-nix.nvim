@@ -28,6 +28,8 @@ with final.pkgs.lib; let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+
+    nvim-dap # https://github.com/mfussenegger/nvim-dap/
     nvim-treesitter.withAllGrammars
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
     # nvim-cmp (autocompletion) and extensions
@@ -78,6 +80,7 @@ with final.pkgs.lib; let
     # ^ UI
     
     # language support
+    rustaceanvim # https://github.com/mrcjkb/rustaceanvim
     # ^ language support
 
     # Editor
@@ -113,6 +116,7 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    codelldb # Provided by rustaceanvim flake
     gcc
     lua-language-server
     nil # nix LSP
