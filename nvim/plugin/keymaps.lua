@@ -151,7 +151,7 @@ keymap.set('n', '<leader>tl', vim.cmd.tabs, { desc = 'List tabs' })
 keymap.set('n', '<leader>tt', vim.cmd.tabnew, { desc = 'Open new tab' })
 keymap.set('n', '<leader>tn', vim.cmd.tabnext, { desc = 'Next tab' })
 keymap.set('n', '<leader>tp', vim.cmd.tabprevious, { desc = 'Previous tab' })
-keymap.set('n', '<leader>tc', vim.cmd.tabclose, { desc = 'Close tab' })
+keymap.set('n', '<leader>td', vim.cmd.tabclose, { desc = 'Delete tab' })
 keymap.set('n', '<leader>to', vim.cmd.tabonly, { desc = 'Close all other tabs' })
 
 keymap.set('n', '<leader>bl', vim.cmd.buffers, { desc = 'List buffers' })

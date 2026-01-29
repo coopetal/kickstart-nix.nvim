@@ -7,8 +7,56 @@ vim.g.did_load_plugins_plugin = true
 -- even with default configs
 
 ---------- Theme ----------
-require('ayu').colorscheme()
+-- local bg = C("#161616")
+-- local fg = C("#f2f4f8")
+--
+-- -- stylua: ignore
+-- local palette = {
+--   black   = Shade.new("#282828", 0.15, -0.15),
+--   red     = Shade.new("#EE5396", 0.15, -0.15),
+--   green   = Shade.new("#25be6a", 0.15, -0.15), -- #25be6a or #42BE65
+--   yellow  = Shade.new("#08BDBA", 0.15, -0.15),
+--   blue    = Shade.new("#78A9FF", 0.15, -0.15),
+--   magenta = Shade.new("#FF8F40", 0.15, -0.15),
+--   cyan    = Shade.new("#FFB454", 0.15, -0.15),
+--   white   = Shade.new("#dfdfe0", 0.15, -0.15),
+--   orange  = Shade.new("#3DDBD9", 0.15, -0.15),
+--   pink    = Shade.new("#FF7EB6", 0.15, -0.15),
+--
+--   comment = bg:blend(fg, 0.4):to_css(),
+--
+--   bg0     = bg:brighten(-4):to_css(), -- Dark bg (status line and float)
+--   bg1     = bg:to_css(), -- Default bg
+--   bg2     = bg:brighten(6):to_css(), -- Lighter bg (colorcolm folds)
+--   bg3     = bg:brighten(12):to_css(), -- Lighter bg (cursor line)
+--   bg4     = bg:brighten(24):to_css(), -- Conceal, border fg
+--
+--   fg0     = fg:brighten(6):to_css(), -- Lighter fg
+--   fg1     = fg:to_css(), -- Default fg
+--   fg2     = fg:brighten(-24):to_css(), -- Darker fg (status line)
+--   fg3     = fg:brighten(-48):to_css(), -- Darker fg (line numbers, fold colums)
+--
+--   sel0    = "#2a2a2a", -- Popup bg, visual selection bg
+--   sel1    = "#525253", -- Popup sel bg, search bg
+-- }
+require("nightfox").setup({
+  palettes = {
+    carbonfox = {
+      blue = { base = "#39BAE6", bright = "#56C4E9", dim = "#309EC3" },
+      magenta = { base = "#FF8F40", bright = "#FF9F5C", dim = "#D87936" },
+      cyan = { base = "#FFB454", bright = "#FFBF6D", dim = "#D89947" },
+      red = { base = "#F07178", bright = "#F2868C", dim = "#CC6066" },
+      pink = { base = "#CB9FF8", bright = "#D2ADF9", dim = "#AC87D2" },
+      white = { base = "#F2F4F8", bright = "#F3F5F9", dim = "#CDCFD2" },
 
+      comment = "#636A72",
+      -- bg0 = "#0B0E14",
+      -- bg1 = "#0B0E14",
+      bg0 = "#161616",
+    },
+  },
+})
+vim.cmd("colorscheme carbonfox")
 
 ---------- Plugins ----------
 require('todo-comments').setup()
@@ -44,7 +92,16 @@ vim.keymap.set('n', '\\ts', require('treesj').split, { desc = 'Split tree' })
 vim.keymap.set('n', '\\tj', require('treesj').join, { desc = 'Join tree' })
 
 
-require('leap').create_default_mappings()
+-- require('leap').create_default_mappings()
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
+vim.keymap.set({'x', 'o'},      'x', '<Plug>(leap-forward-till)')
+vim.keymap.set({'x', 'o'},      'X', '<Plug>(leap-backward-till)')
+vim.keymap.set({'x', 'o'}, 'R',  function ()
+  require('leap.treesitter').select {
+    opts = require('leap.user').with_traversal_keys('R', 'r')
+  }
+end)
 require('leap-spooky').setup {
   paste_on_remote_yank = true,
 }
@@ -65,7 +122,7 @@ require("toggleterm").setup {
 }
 
 
-require("project_nvim").setup()
+require("project").setup()
 
 
 require('highlight-undo').setup()
@@ -75,3 +132,5 @@ require('highlight-undo').setup()
 require('neoscroll').setup {
   easing = "quartic" -- linear, quadratic, cubic, quartic, quintic, circular, sine
 }
+
+require("colorizer").setup()

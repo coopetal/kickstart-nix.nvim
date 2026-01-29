@@ -3,7 +3,7 @@ if vim.g.did_load_treesitter_plugin then
 end
 vim.g.did_load_treesitter_plugin = true
 
-local configs = require('nvim-treesitter.configs')
+local configs = require('nvim-treesitter.config')
 vim.g.skip_ts_context_comment_string_module = true
 
 ---@diagnostic disable-next-line: missing-fields
@@ -76,7 +76,7 @@ configs.setup {
         ['[P'] = '@parameter.outer',
       },
     },
-    nsp_interop = {
+    lsp_interop = {
       enable = true,
       peek_definition_code = {
         ['df'] = '@function.outer',

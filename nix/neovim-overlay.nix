@@ -53,22 +53,25 @@ with final.pkgs.lib; let
     # ^ git integration plugins
 
     # telescope and extensions
+    neorg-telescope # https://github.com/nvim-neorg/neorg-telescope/
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
     telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     # ^ telescope and extensions
 
     # theme
-    neovim-ayu # https://github.com/Shatur/neovim-ayu/
+    # neovim-ayu # https://github.com/Shatur/neovim-ayu/
+    nightfox-nvim # https://github.com/EdenEast/nightfox.nvim
     # ^ theme
 
     # UI
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
-    statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     neo-tree-nvim # https://github.com/nvim-neo-tree/neo-tree.nvim
     neoscroll-nvim # https://github.com/karb94/neoscroll.nvim/
     nvim-treesitter-context # nvim-treesitter-context
+    snipe-nvim # https://github.com/leath-dub/snipe.nvim/
+    statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
     undotree # https://github.com/mbbill/undotree/
     which-key-nvim # https://github.com/folke/which-key.nvim
@@ -81,6 +84,8 @@ with final.pkgs.lib; let
     # Editor
     highlight-undo-nvim # https://github.com/tzachar/highlight-undo.nvim/
     leap-nvim # https://github.com/ggandor/leap.nvim/
+    neorg # https://github.com/nvim-neorg/neorg
+    nvim-colorizer-lua # https://github.com/catgoose/nvim-colorizer.lua/
     nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
     nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
     todo-comments-nvim # https://github.com/folke/todo-comments.nvim
@@ -91,21 +96,20 @@ with final.pkgs.lib; let
     # Useful utilities
     mini-nvim # https://github.com/echasnovski/mini.nvim?tab=readme-ov-file
     nvim-unception # Prevent nested neovim sessions | nvim-unception
-    project-nvim # https://github.com/ahmedkhalf/project.nvim/
+    project-nvim # https://github.com/DrKJeff16/project.nvim/
     # ^ Useful utilities
 
     # libraries that other plugins depend on
-    sqlite-lua
-    plenary-nvim
     nui-nvim # https://github.com/MunifTanjim/nui.nvim
     nvim-web-devicons
+    plenary-nvim
+    sqlite-lua
     vim-repeat
     # ^ libraries that other plugins depend on
 
     # bleeding-edge plugins from flake inputs
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     (mkNvimPlugin inputs.leap-spooky-nvim "leap-spooky-nvim") # https://github.com/ggandor/leap-spooky.nvim
-    (mkNvimPlugin inputs.snipe-nvim "snipe-nvim") # https://github.com/leath-dub/snipe.nvim
     # ^ bleeding-edge plugins from flake inputs
   ];
 

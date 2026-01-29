@@ -28,8 +28,17 @@ local function extra_mode_status()
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'auto',
+    always_show_tabline = false,
+    globalstatus = true,
+    component_separators = '',
+    section_separators = { left = '', right = '' },
+  },
+  -- Status line config
   sections = {
-    lualine_b = { 'branch', 'diff', },
+    lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+    lualine_b = { { 'branch', draw_empty = true }, 'diff' },
     lualine_c = {
       -- nvim-navic
       { navic.get_location, cond = navic.is_available },
@@ -41,48 +50,43 @@ require('lualine').setup {
       },
       'fileformat',
     },
-    lualine_y = { 'filetype' },
+    lualine_y = {
+      {
+        'filetype',
+        draw_empty = true,
+      },
+      'lsp_status',
+    },
     lualine_z = {
-      { 'hostname' },
+      { 'hostname', separator = { right = '' }, left_padding = 2 },
     },
   },
-  options = {
-    theme = 'auto',
-    globalstatus = true,
-  },
+  -- Tab line config
   tabline = {
     lualine_a = {
       {
         'tabs',
-        mode = 2,
+        mode = 1,
         use_mode_colors = true,
+        separator = { left = '', right = '' },
+        right_padding = 2,
       },
     },
-    -- lualine_b = {
-    --   {
-    --     'buffers',
-    --     show_filename_only = true,
-    --     show_bufnr = true,
-    --     mode = 4,
-    --     filetype_names = {
-    --       TelescopePrompt = 'Telescope',
-    --       dashboard = 'Dashboard',
-    --       fzf = 'FZF',
-    --     },
-    --     buffers_color = {
-    --       -- Same values as the general color option can be used here.
-    --       active = 'lualine_b_normal', -- Color for active buffer.
-    --       inactive = 'lualine_b_inactive', -- Color for inactive buffer.
-    --     },
-    --   },
-    -- },
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
+  -- Window bar config
   winbar = {
-    lualine_a = { extra_mode_status },
+    lualine_a = {
+      {
+        extra_mode_status,
+        separator = { left = '' },
+        right_padding = 2,
+        draw_empty = true,
+      }
+    },
     lualine_b = { 'progress', 'location', },
     lualine_c = { 'diagnostics' },
     lualine_z = {
@@ -91,6 +95,8 @@ require('lualine').setup {
         path = 1,
         file_status = true,
         newfile_status = true,
+        separator = { left = '', right = '' },
+        left_padding = 2,
       },
     },
   },
@@ -101,6 +107,8 @@ require('lualine').setup {
         path = 1,
         file_status = true,
         newfile_status = true,
+        separator = { left = '', right = '' },
+        left_padding = 2,
       },
     },
   },

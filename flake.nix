@@ -8,18 +8,11 @@
 
     # Add bleeding-edge plugins here.
     # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
-    # wf-nvim = {
-    #   url = "github:Cassin01/wf.nvim";
-    #   flake = false;
-    # };
     leap-spooky-nvim = {
       url = "github:/ggandor/leap-spooky.nvim";
       flake = false;
     };
-    snipe-nvim = {
-      url = "github:/leath-dub/snipe.nvim";
-      flake = false;
-    };
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
   outputs = inputs @ {
@@ -45,6 +38,7 @@
         overlays = [
           # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
           neovim-overlay
+          inputs.neorg-overlay.overlays.default
           # This adds a function can be used to generate a .luarc.json
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
